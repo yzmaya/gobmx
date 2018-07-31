@@ -8,6 +8,51 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+
+<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDujLZpXosVc-ikxxLf0l6ykLjbrqO2lCQ",
+    authDomain: "miprimerapp-66f05.firebaseapp.com",
+    databaseURL: "https://miprimerapp-66f05.firebaseio.com",
+    projectId: "miprimerapp-66f05",
+    storageBucket: "miprimerapp-66f05.appspot.com",
+    messagingSenderId: "804384469147"
+  };
+  firebase.initializeApp(config);
+
+
+var chicas = firebase.database().ref('confirmados/');
+
+
+/*
+function saveNumber() {
+  var name = $('#name').val();
+  var number = $('#number').val();
+  chicas.push({
+    girl: name,
+      contact:number
+      
+  });
+  var name = $('#name').val('');
+  var number = $('#number').val('');
+}
+
+*/
+chicas.on('child_added', function(data) {
+  var numero = data.key;
+  var result = data.val().correo;
+
+  $('#lista').prepend('<option>'  + numero + '</option>' );
+
+
+});
+
+
+
+</script>
  
 <script type="text/javascript">
   function getValue(sString){
@@ -117,7 +162,9 @@ if(dd > 28){
         </tr>
     </tbody>
 </table>
-
+ <div >
+  
+ </div>
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -136,7 +183,9 @@ if(dd > 28){
           <div class="form-group"><input class="form-control" placeholder="Nombre Completo (Inicia con Nombre)" type="text" /></div>
           <div class="form-group"><input class="form-control" placeholder="Correo electr&oacute;nico" type="email" required="" /></div>
           <div class="form-group"><input class="form-control" placeholder="CURP" type="text" /></div>
-          <div class="form-group"><input class="form-control" placeholder="Entidad" type="text" /></div>
+          <div class="form-group">
+           <select class="form-control" id="lista"></select>
+          </div>
           <div class="form-group"><input class="form-control" placeholder="Subsistema" type="text" /></div>
           <div class="form-group"><input class="form-control" placeholder="CCT" type="text" /></div>
           <div class="form-group">
