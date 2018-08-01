@@ -25,7 +25,6 @@
 
 
 var ENT = firebase.database().ref('conecta/');
-var SUB = firebase.database().ref('conecta/aguascalientes/');
 
 
 /*
@@ -50,14 +49,44 @@ ENT.on('child_added', function(data) {
 
 });
 
-SUB.on('child_added', function(data) {
-  var subsistema = data.key;
-
-/*  $('#lista2').append('<option>'  + subsistema + '</option>' );*/
+ 
 
 
+
+$(document).ready(function(){
+  // $("select").mouseover(function(){
+    //    $("p").css("background-color", "yellow");
+    //});
+    $("#lista2").mouseover(function(){
+        //$("select").css("background-color", "lightgray");
+        //console.log($('#lista').val());
+
+        var raiz = $('#lista').val();
+        var db_sub = firebase.database().ref('conecta/' + raiz  + '/');
+         $('#lista2').html('');
+
+       
+             db_sub.on('child_added', function(data) {
+            var subsistema = data.key;
+            $('#lista2').append('<option>'  + subsistema + '</option>' );
+            });   
+
+    });
+
+
+     $("#lista3").mouseover(function(){
+        var raiz = $('#lista').val();
+        var raiz2 = $('#lista2').val();
+        var db_sub2 = firebase.database().ref('conecta/' + raiz  + '/' + raiz2 + '/');
+         $('#lista3').html('');
+
+        db_sub2.on('child_added', function(data) {
+            var cct = data.key;
+            $('#lista3').append('<option>'  + cct + '</option>' );
+            }); 
+
+    });
 });
-
 
 </script>
  
@@ -73,9 +102,10 @@ $("#cursito").val(nombre);
 
 
   
+/*
 var hoy = new Date();
 var dd = hoy.getDate();
-var mm = hoy.getMonth()+1; //hoy es 0!
+var mm = hoy.getMonth()+1;
 var yyyy = hoy.getFullYear();
 
 if(dd<10) {
@@ -93,7 +123,7 @@ if(dd > 28){
   console.log('es un dia mayor a 28')
 }else{
    console.log('es un dia menor a ')
-}
+}*/
 </script>
 
 </head>
@@ -196,7 +226,9 @@ if(dd > 28){
           <div class="form-group">
            <select class="form-control" id="lista2"></select>
           </div>
-          <div class="form-group"><input class="form-control" placeholder="CCT" type="text" /></div>
+          <div class="form-group">
+            <select class="form-control" id="lista3"></select>
+          </div>
           <div class="form-group">
             <select class="form-control" id="sel1">
               <option>Primer Semestre</option>
