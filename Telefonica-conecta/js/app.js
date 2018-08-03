@@ -71,14 +71,6 @@ ENT.on('child_added', function(data) {
     });
 
 
-  function getValue(sString){
-localStorage.setItem("Nombre", sString); 
-var nombre = localStorage.getItem("Nombre");
-document.getElementById("nombre").innerHTML = nombre;
-$("#cursito").val(nombre);
-
-};
-
 
   
 /*

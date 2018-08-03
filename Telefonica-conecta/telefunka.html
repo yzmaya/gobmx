@@ -9,6 +9,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/estilo.css">
   <script src="js/app.js"></script>
+  <script>
+    
+  function getValue(sString){
+localStorage.setItem("Nombre", sString); 
+var nombre = localStorage.getItem("Nombre");
+document.getElementById("nombre").innerHTML = nombre;
+$("#cursito").val(nombre);
+
+};
+
+  </script>
  
 <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
 
@@ -107,21 +118,26 @@
            <span id="nombre" style="display: none;"> </span> 
 <form accept-charset="UTF-8" role="form">
     <fieldset>
-          <div class="form-group"><input class="form-control" id="cursito" type="text" disabled/></div>
-          <div class="form-group"><input class="form-control" placeholder="Nombre Completo (Inicia con Nombre)" type="text" /></div>
-          <div class="form-group"><input class="form-control" placeholder="Correo electr&oacute;nico" type="email" required="" /></div>
-          <div class="form-group"><input class="form-control" placeholder="CURP" type="text" /></div>
-          <div class="form-group">
 
-           <select class="form-control" id="lista" value="value1">value1</select>
+          <div class="form-group"><label for="curso">Curso:</label>
+            <input class="form-control" id="cursito" type="text" disabled/></div>
+          <div class="form-group"><label for="curso">Nombre Completo:</label>
+            <input class="form-control" placeholder="Nombre Completo (Inicia con Nombre)" type="text" /></div>
+          <div class="form-group"><label for="curso">Correo Electrónico:</label>
+            <input class="form-control" placeholder="Correo electr&oacute;nico" type="email" required="" />
+          <label for="curso">CURP:</label>
+            <input class="form-control" placeholder="CURP" type="text" /></div>
+          <div class="form-group"><label for="curso">Entidad:</label>
+
+           <select class="form-control" id="lista"></select>
           </div>
-          <div class="form-group">
+          <div class="form-group"><label for="curso">Subsistema:</label>
            <select class="form-control" id="lista2"></select>
-          </div>
-          <div class="form-group">
+          </div>  
+          <div class="form-group"><label for="curso">CCT:</label>
             <select class="form-control" id="lista3"></select>
           </div>
-          <div class="form-group">
+          <div class="form-group"><label for="curso">¿Qué semestre cursas?:</label>
             <select class="form-control" id="sel1">
               <option>Primer Semestre</option>
               <option>Segundo Semestre</option>
@@ -131,7 +147,8 @@
               <option>Sexto Semestre</option>
             </select>
           </div>
-          <div class="form-group"><input class="form-control" placeholder="Carrera T&eacute;cnica &oacute; Formaci&oacute;n para el Trabajo" type="text" /></div>
+          <div class="form-group"><label for="curso">Carrera Técnica o Formación para el Trabajo:</label>
+            <input class="form-control" placeholder="Carrera T&eacute;cnica &oacute; Formaci&oacute;n para el Trabajo" type="text" /></div>
           <input class="btn btn-lg btn-success btn-block" value="Registrarse" type="submit" />
      </fieldset>
 </form>
