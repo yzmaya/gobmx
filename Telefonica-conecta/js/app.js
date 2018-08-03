@@ -1,4 +1,5 @@
- var config = {
+  $(document).ready(function(){
+  const config = {
     apiKey: "AIzaSyDujLZpXosVc-ikxxLf0l6ykLjbrqO2lCQ",
     authDomain: "miprimerapp-66f05.firebaseapp.com",
     databaseURL: "https://miprimerapp-66f05.firebaseio.com",
@@ -8,8 +9,9 @@
   };
   firebase.initializeApp(config);
 
+   // Initialize Firebase
 
-var ENT = firebase.database().ref('conecta/');
+  var ENT = firebase.database().ref('conecta/');
 
 
 /*
@@ -26,6 +28,8 @@ function saveNumber() {
 }
 
 */
+
+//se llena entidad por medio de append
 ENT.on('child_added', function(data) {
   var entidad = data.key;
   var ajua = 'abc';
@@ -34,16 +38,8 @@ ENT.on('child_added', function(data) {
 
 });
 
- 
 
-
- function test(){
-
-alert($(this).val());
-};
-
-
-$(document).ready(function(){
+// selecciona entidad y se desblquea subsistema
   $("#lista").change(function(){
               var raiz = $('#lista').val();
         var db_sub = firebase.database().ref('conecta/' + raiz  + '/');
@@ -57,14 +53,10 @@ $(document).ready(function(){
             $('#lista2').append('<option>'  + subsistema + '</option>' );
             });            
         });
-});
 
+
+// selecciona subsistema y se desblquea cct
           
-
-$(document).ready(function(){
-
-
-
      $("#lista2").change(function(){
         var raiz = $('#lista').val();
         var raiz2 = $('#lista2').val();
@@ -77,7 +69,7 @@ $(document).ready(function(){
             }); 
 
     });
-});
+
 
   function getValue(sString){
 localStorage.setItem("Nombre", sString); 
@@ -86,7 +78,6 @@ document.getElementById("nombre").innerHTML = nombre;
 $("#cursito").val(nombre);
 
 };
-
 
 
   
@@ -112,3 +103,4 @@ if(dd > 28){
 }else{
    console.log('es un dia menor a ')
 }*/
+});
