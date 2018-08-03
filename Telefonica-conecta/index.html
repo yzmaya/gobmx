@@ -9,7 +9,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="/work/models/sems/gobmx/css/estilo.css">
   <script src="/work/models/sems/gobmx/js/app.js"></script>
+<script>
+   function getValue(sString){
+localStorage.setItem("Nombre", sString); 
+var nombre = localStorage.getItem("Nombre");
+document.getElementById("nombre").innerHTML = nombre;
+$("#cursito").val(nombre);
 
+};
+
+</script>
 
 <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
 
