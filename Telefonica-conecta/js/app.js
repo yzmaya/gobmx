@@ -72,6 +72,17 @@ ENT.on('child_added', function(data) {
 
 
 
+ $("#registrado").click(function(){
+  var uno = $("#correo").val();
+  
+  if(uno == ''){
+  }else{
+    alert('Recuerda que al terminar el curso debes adjuntar tu constancia en: www.sems.gob.mx/constancia');
+    window.location.href = "https://miriadax.net/web/analitica-web/inicio";
+  }
+  
+});
+
   
 /*
 var hoy = new Date();
