@@ -70,15 +70,67 @@ ENT.on('child_added', function(data) {
 
     });
 
-
+     
 
  $("#registrado").click(function(){
-  var uno = $("#correo").val();
+
+var campo1 = $("#cursito").val();
+  var redireccion;
+      switch (campo1) { 
+        case 'Analítica Web': 
+          redireccion = 'https://miriadax.net/web/analitica-web/inicio';
+          break;
+        case 'Gestión de Proyectos con metodologías ágiles y enfoques Lean': 
+          redireccion = 'https://miriadax.net/web/gestion-de-proyectoscon-metodologias-agiles-y-enfoques-lean-3-edicion-/inicio';
+          break;
+        case 'Growt Hacking': 
+          redireccion = 'https://miriadax.net/web/growth-hacking-2-edicion-/inicio';
+          break;    
+        case 'Habilidades para el Empleo': 
+          redireccion = '';
+          break;
+        case 'Emprendimiento Social':
+          redireccion = 'https://miriadax.net/web/emprendimiento-socialpon-tu-proyecto-en-marcha-6-edicion-/inicio';
+          break;
+        default:
+        console.log('que?');
+      };
+
+    
+    var campo2 = $("#CAMPO2").val();
+    var campo3 = $("#CAMPO3").val();
+    var campo4 = $("#CAMPO4").val();
+    var campo5 = $("#lista").val();
+    var campo6 = $("#lista2").val();
+    var campo7 = $("#lista3").val();
+    var campo8 = $("#CAMPO5").val();
+    var campo9 = $("#CAMPO6").val();
   
-  if(uno == ''){
+    
+
+
+  if(campo2, campo3, campo4, campo5, campo6, campo7, campo8, campo9  == ''){
+
   }else{
+    var user_register = firebase.database().ref('registrados/');
+    //se agregan los datos
+   user_register.push({
+    course: campo1,
+    name: campo2,
+    mail: campo3,
+    curp: campo4,
+    entity: campo5,
+    subsystem: campo6,
+    c_c_t: campo7,
+    semestre: campo8,
+    carreer: campo9
+      
+  });
+
+    console.log(redireccion);
     alert('Recuerda que al terminar el curso debes adjuntar tu constancia en: www.sems.gob.mx/constancia');
-    window.location.href = "https://miriadax.net/web/analitica-web/inicio";
+    window.open(redireccion, '_blank');
+    
   }
   
 });
