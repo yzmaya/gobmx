@@ -18,8 +18,3 @@ chicas.on('child_added', function(data) {
 
   $('#lista').prepend('<tr><td>' + nombre + '</td><td> ' + curso + '</td><td> ' + correo + '</td></tr>' );
 });
-
-
-
-
-
