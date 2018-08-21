@@ -2,9 +2,38 @@
 <html>
 <head>
     <title></title>
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
 <body>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pyPYETIthdk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div class="container">
+  <p>Usarios registrados:</p>                                                                                      
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Curso</th>
+        <th>Correo Electrónico</th>
+        
+      </tr>
+    </thead>
+    <tbody id="lista">
+    </tbody>
+  </table>
+  </div>
+</div>
+	<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+<script src="js/registros.js"></script>
+	<!--  Jquery  -->
+	<script
+	  src="https://code.jquery.com/jquery-3.1.1.min.js"
+	  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	  crossorigin="anonymous"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </body>
 </html>
