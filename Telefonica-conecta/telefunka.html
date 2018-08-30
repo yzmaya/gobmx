@@ -11,210 +11,218 @@
   <script src="js/app.js"></script>
   <script>
     
-  function getValue(sString){
-localStorage.setItem("Nombre", sString); 
-var nombre = localStorage.getItem("Nombre");
-document.getElementById("nombre").innerHTML = nombre;
-$("#cursito").val(nombre);
+    function getValue(sString){
+      localStorage.setItem("Nombre", sString); 
+      var nombre = localStorage.getItem("Nombre");
+      document.getElementById("nombre").innerHTML = nombre;
+      $("#cursito").val(nombre);
 
-};
+    };
 
 
 
   </script>
- 
-<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+  
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
 
-<script>
- 
-</script>
+  <script>
+   
+  </script>
 
- 
+  
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50" style="padding-top:50px;">
 
-<nav class="navbar navbar-inverse navbar-fixed-top"  style="background-color: #393c3e;">
+  <nav class="navbar navbar-inverse navbar-fixed-top"  style="background-color: #393c3e;">
+    <div class="container">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand" href="https://www.gob.mx/"><img src="img/gob_mx.jpg"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+         
+          <ul class="nav navbar-nav navbar-right">
+            <li ><a style="color: white;" href="https://www.gob.mx/tramites">Trámites </a></li>
+            <li><a style="color: white;" href="https://www.gob.mx/gobierno">Gobierno </a></li>
+            <li><a style="color: white;"  href="https://www.gob.mx/participa/inicio">Participa </a></li>
+            <li><a style="color: white;"  href="https://www.gob.mx/busqueda?utf8=%E2%9C%93&site=participa&q="> <span class="glyphicon glyphicon-search"></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
   <div class="container">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="https://www.gob.mx/"><img src="img/gob_mx.jpg"></a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-     
-      <ul class="nav navbar-nav navbar-right">
-        <li ><a style="color: white;" href="https://www.gob.mx/tramites">Trámites </a></li>
-        <li><a style="color: white;" href="https://www.gob.mx/gobierno">Gobierno </a></li>
-        <li><a style="color: white;"  href="https://www.gob.mx/participa/inicio">Participa </a></li>
-        <li><a style="color: white;"  href="https://www.gob.mx/busqueda?utf8=%E2%9C%93&site=participa&q="> <span class="glyphicon glyphicon-search"></span></a></li>
-      </ul>
-    </div>
-  </div>
-   </div>
-</nav>
- 
-<div class="container">
-  <h2>Cursos en habilidades tecnológicas y profesionales para el trabajo</h2>
+    <h2>Cursos en habilidades tecnológicas y profesionales para el trabajo</h2>
 
 
-<p style="text-align: justify;">Si deseas aprender más, reforzar tus conocimientos o sencillamente quieres actualizarte, estos cursos son para ti. En el área de habilidades tecnológicas, habilidades para el empleo y emprendimiento, se dispone de la siguiente oferta de cursos que nos brinda la colaboración de la Subsecretaria de Educación Media Superior con Fundación Telefónica México A.C., enfocados en el uso de herramientas digitales, competencias transversales, así como habilidades para el trabajo y emprendimiento, con una duración entre cuatro y ocho semanas. Los cursos son gratuitos.</p>
+    <p style="text-align: justify;">Si deseas aprender más, reforzar tus conocimientos o sencillamente quieres actualizarte, estos cursos son para ti. En el área de habilidades tecnológicas, habilidades para el empleo y emprendimiento, se dispone de la siguiente oferta de cursos que nos brinda la colaboración de la Subsecretaria de Educación Media Superior con Fundación Telefónica México A.C., enfocados en el uso de herramientas digitales, competencias transversales, así como habilidades para el trabajo y emprendimiento, con una duración entre cuatro y ocho semanas. Los cursos son gratuitos.</p>
 
-  <!-- Trigger the modal with a button -->
+    <!-- Trigger the modal with a button -->
 
-  <table class="table table-hover" class="table-responsive">
-    <thead>
+    <table class="table table-hover" class="table-responsive">
+      <thead>
         <tr>
-            <th>Cursos</th>
-            <th>Descripci&oacute;n</th>
-            <th>Fecha de Inicio</th>
-            <th>Fecha de Termino</th>
+          <th>Cursos</th>
+          <th>Descripci&oacute;n</th>
+          <th>Fecha de Inicio</th>
+          <th>Fecha de Termino</th>
         </tr>
-    </thead>
-    <tbody data-toggle="modal" data-target="#myModal" style="cursor: pointer;">
-        <tr onclick="getValue('Analítica Web');" style="display: none;" >    
-            <td>Analítica Web</td>
-            <td>Conocer&aacute;s las herramientas que te ayudar&aacute;n a rescatar todos los datos necesarios para interpretarlos y extraer las conclusiones para tus productos digitales</td>
-            <td>29 de Octubre de 2018</td>
-            <td>10 de Diciembre de 2018</td>
+      </thead>
+      <tbody data-toggle="modal" data-target="#myModal" style="cursor: pointer;">
+        <tr onclick="getValue('Analítica Web');">    
+          <td>Analítica Web</td>
+          <td>Conocer&aacute;s las herramientas que te ayudar&aacute;n a rescatar todos los datos necesarios para interpretarlos y extraer las conclusiones para tus productos digitales</td>
+          <td>29 de Octubre de 2018</td>
+          <td>10 de Diciembre de 2018</td>
         </tr>
         <tr onclick="getValue('Gestión de Proyectos con metodologías ágiles y enfoques Lean');">
-            <td>Gesti&oacute;n de Proyectos con metodolog&iacute;as &aacute;giles y enfoques Lean</td>
-            <td>Conocer&aacute;s que son las metodolog&iacute;as &aacute;giles, el contexto en el que surgen y su aplicaci&oacute;n a los proyectos actuales</td>
-            <td>17 de Septiembre de 2018</td>
-            <td>12 de Noviembre de 2018</td>
+          <td>Gesti&oacute;n de Proyectos con metodolog&iacute;as &aacute;giles y enfoques Lean</td>
+          <td>Conocer&aacute;s que son las metodolog&iacute;as &aacute;giles, el contexto en el que surgen y su aplicaci&oacute;n a los proyectos actuales</td>
+          <td>17 de Septiembre de 2018</td>
+          <td>12 de Noviembre de 2018</td>
         </tr>
-        <tr onclick="getValue('Growt Hacking');">
-            <td>Growt Hacking</td>
-            <td>Conocer&aacute;s que son las metodolog&iacute;as &aacute;giles, el contexto en el que surgen y su aplicaci&oacute;n a los proyectos actuales</td>
-            <td>29 de Octubre de 2018</td>
-            <td>10 de Diciembre de 2018</td>
+        <tr onclick="getValue('Estrategia de posicionamiento digital (Growth Hacking)');">
+          <td>Estrategia de posicionamiento digital (Growth Hacking)</td>
+          <td>¿Cómo hacer que un producto digital sea un éxito? Descubre las claves para ser el mejor Growth Hacker de la historia.</td>
+          <td>29 de Octubre de 2018</td>
+          <td>10 de Diciembre de 2018</td>
         </tr>
         <tr onclick="getValue('Habilidades para el Empleo');">
-            <td>Habilidades para el Empleo</td>
-            <td>Conocer&aacute;s las herramientas para mejorar tu perfil como candidato en la búsqueda de empleo y las destrezas necesarias para diferenciarte del resto de candidatos.</td>
-            <td>17 de Septiembre de 2018</td>
-            <td>20 de Octubre de 2018</td>
+          <td>Habilidades para el Empleo</td>
+          <td>Conocer&aacute;s las herramientas para mejorar tu perfil como candidato en la búsqueda de empleo y las destrezas necesarias para diferenciarte del resto de candidatos.</td>
+          <td>17 de Septiembre de 2018</td>
+          <td>20 de Octubre de 2018</td>
         </tr>
         <tr onclick="getValue('Emprendimiento Social');">
-            <td>Emprendimiento Social</td>
-            <td>Curso dirigido a personas comprometidas que quieren conocer c&oacute;mo hacer realidad su pasi&oacute;n</td>
-            <td>Próximamente</td>
-            <td>Próximamente</td>
+          <td>Emprendimiento Social</td>
+          <td>Curso dirigido a personas comprometidas que quieren conocer c&oacute;mo hacer realidad su pasi&oacute;n</td>
+          <td>Próximamente</td>
+          <td>Próximamente</td>
         </tr>
-    </tbody>
-</table>
- <div >
-  
- </div>
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">PRE REGISTRO</h4>
-        </div>
-        <div class="modal-body">
-           <span id="nombre" style="display: none;"> </span> 
-<form accept-charset="UTF-8" role="form" >
-    <fieldset>
-
-          <div class="form-group"><label for="curso">Curso:</label>
-            <input style="text-transform: uppercase;" class="form-control" id="cursito" type="text" disabled/></div>
-          <div class="form-group"><label for="curso">Nombre Completo:</label>
-            <input style="text-transform: uppercase;" id="CAMPO2" class="form-control" placeholder="Nombre Completo (Inicia con Nombre)" type="text" required="" /></div>
-          <div class="form-group"><label for="curso">Correo Electrónico:</label>
-            <input style="text-transform: uppercase;" id="CAMPO3" class="form-control" placeholder="Correo electr&oacute;nico" type="email" required="" id="correo" /></div>
-          <div class="form-group"> <label for="curso">CURP:</label>
-            <input style="text-transform: uppercase;" id="CAMPO4" class="form-control" placeholder="Es necesario proporcionar los 18 caracteres que componen la CURP" type="text" required="" maxlength="18" /></div>
-          <div class="form-group"><label for="curso">Entidad:</label>
-
-           <select style="text-transform: uppercase;" class="form-control" id="lista" required=""></select>
-          </div>
-          <div class="form-group"><label for="curso">Subsistema:</label>
-           <select style="text-transform: uppercase;" class="form-control" id="lista2" required=""></select>
-          </div>  
-          <div class="form-group"><label for="curso">CCT:</label>
-            <select style="text-transform: uppercase;" class="form-control" id="lista3" required=""></select>
-          </div>
-          <div class="form-group"><label for="curso">¿Qué semestre cursas?:</label>
-            <select class="form-control" id="CAMPO5" required="">
-              <option>*SELECCIONA UNA OPCIÓN</option>
-              <option>PRIMER SEMESTRE</option>
-              <option>SEGUNDO SEMESTRE</option>
-              <option>TERCER SEMESTRE</option>
-              <option>CUARTO SEMESTRE</option>
-              <option>QUINTO SEMESTRE</option>
-              <option>SEXTO SEMESTRE</option>
-            </select>
-          </div>
-          <div class="form-group"><label for="curso">Carrera Técnica o Formación para el Trabajo:</label>
-            <input style="text-transform: uppercase;" id="CAMPO6" class="form-control" placeholder="Carrera T&eacute;cnica &oacute; Formaci&oacute;n para el Trabajo" type="text" required="" /></div>
-          <input class="btn btn-lg btn-success btn-block" value="Registrarse" type="submit" id="registrado" />
-     </fieldset>
-</form>
-        </div>
-        
-      </div>
+      </tbody>
+    </table>
+    <div >
       
     </div>
-  </div>
-</div>
-  <!--************************************************ AQUI EMPIEZA EL FOOTER *********************************************** -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">PRE REGISTRO</h4>
+          </div>
+          <div class="modal-body">
+           <span id="nombre" style="display: none;"> </span> 
+           <form accept-charset="UTF-8" role="form" >
+            <fieldset>
 
-<div class="footer">
-<div class="container">
-  <div class="col-sm-4">
-    <br><br>
-    <h5>Enlaces</h5><br>
+              <div class="form-group"><label for="curso">Curso:</label>
+                <input style="text-transform: uppercase;" class="form-control" id="cursito" type="text" disabled/></div>
+                <div class="form-group"><label for="curso">Nombre Completo:</label>
+                  <input style="text-transform: uppercase;" id="CAMPO2" class="form-control" placeholder="Nombre Completo (Inicia con Nombre)" type="text" required="" /></div>
+                  <div class="form-group"><label for="curso">Correo Electrónico:</label>
+                    <input style="text-transform: uppercase;" id="CAMPO3" class="form-control" placeholder="Correo electr&oacute;nico" type="email" required="" id="correo" /></div>
+                    <div class="form-group"> <label for="curso">CURP:</label>
+                      <input style="text-transform: uppercase;" id="CAMPO4" class="form-control" placeholder="Es necesario proporcionar los 18 caracteres que componen la CURP" type="text" required="" maxlength="18" /></div>
+                      <div class="form-group"><label for="curso">Entidad:</label>
+
+                       <select style="text-transform: uppercase;" class="form-control" id="lista" required=""></select>
+                     </div>
+                     <div class="form-group"><label for="curso">Subsistema:</label>
+                       <select style="text-transform: uppercase;" class="form-control" id="lista2" required=""></select>
+                     </div>  
+                     <div class="form-group"><label for="curso">CCT:</label>
+                      <select style="text-transform: uppercase;" class="form-control" id="lista3" required=""></select>
+                    </div>
+                    <div class="form-group"><label for="curso">¿Qué semestre cursas?:</label>
+                      <select class="form-control" id="CAMPO5" required="">
+                        <option>*SELECCIONA UNA OPCIÓN</option>
+                        <option>PRIMER SEMESTRE</option>
+                        <option>SEGUNDO SEMESTRE</option>
+                        <option>TERCER SEMESTRE</option>
+                        <option>CUARTO SEMESTRE</option>
+                        <option>QUINTO SEMESTRE</option>
+                        <option>SEXTO SEMESTRE</option>
+                      </select>
+                    </div>
+                    <div class="form-group"><label for="curso">Carrera Técnica o Formación para el Trabajo:</label>
+                      <input style="text-transform: uppercase;" id="CAMPO6" class="form-control" placeholder="Carrera T&eacute;cnica &oacute; Formaci&oacute;n para el Trabajo" type="text" required="" /></div>
+
+                      <div class="form-group">
+                       <form class="form-control">
+                        <label class="radio-inline">
+                          <input type="radio" required="">Acepto el <a href="">Aviso de Privacidad</a>
+                        </label>
+                      </form>
+                    </div>
+                    <input class="btn btn-lg btn-success btn-block" value="Registrarse" type="submit" id="registrado" />
+                  </fieldset>
+                </form>
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <!--************************************************ AQUI EMPIEZA EL FOOTER *********************************************** -->
+
+      <div class="footer">
+        <div class="container">
+          <div class="col-sm-4">
+            <br><br>
+            <h5>Enlaces</h5><br>
 
 
-    <a target="_blank" href="http://reformas.gob.mx/" style="color: white;"> Reformas</a><br>
-    <a target="_blank" href="http://portaltransparencia.gob.mx/buscador/search/search.do?method=begin" style="color: white;"> Portal de Obligaciones de Transparencia</a><br>
-    <a target="_blank" href="https://www.infomex.org.mx/gobiernofederal/home.action" style="color: white;"> Sistema Infomex</a><br>
-    <a target="_blank" href="http://inicio.ifai.org.mx/SitePages/ifai.aspx" style="color: white;">INAI</a><br>
-    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-    <img src="img/gob_mx.jpg"> <br> <br> <br> <br>
-  </div>
-  <div class="col-sm-4">
-    <br><br>
-    <h5>¿Qué es gob.mx?</h5><br>
+            <a target="_blank" href="http://reformas.gob.mx/" style="color: white;"> Reformas</a><br>
+            <a target="_blank" href="http://portaltransparencia.gob.mx/buscador/search/search.do?method=begin" style="color: white;"> Portal de Obligaciones de Transparencia</a><br>
+            <a target="_blank" href="https://www.infomex.org.mx/gobiernofederal/home.action" style="color: white;"> Sistema Infomex</a><br>
+            <a target="_blank" href="http://inicio.ifai.org.mx/SitePages/ifai.aspx" style="color: white;">INAI</a><br>
+            <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+            <img src="img/gob_mx.jpg"> <br> <br> <br> <br>
+          </div>
+          <div class="col-sm-4">
+            <br><br>
+            <h5>¿Qué es gob.mx?</h5><br>
 
-    Es el portal único de trámites, información y participación ciudadana. <a target="_blank" href="https://www.gob.mx/que-es-gobmx" style="color: white;">Leer más</a><br>
+            Es el portal único de trámites, información y participación ciudadana. <a target="_blank" href="https://www.gob.mx/que-es-gobmx" style="color: white;">Leer más</a><br>
 
-    <a target="_blank" href="https://www.gob.mx/en/index" style="color: white;"> English</a><br>
-    <a target="_blank" href="https://www.gob.mx/temas" style="color: white;">Temas</a><br>
-    <a target="_blank" href="https://www.gob.mx/accesibilidad" style="color: white;">Declaración de Accesibilidad</a><br>
-    <a target="_blank" href="https://www.gob.mx/privacidadintegral" style="color: white;">Aviso de privacidad integral</a><br>
-    <a target="_blank" href="https://www.gob.mx/privacidadsimplificado" style="color: white;">Aviso de privacidad simplificado</a><br>
-    <a target="_blank" href="https://www.gob.mx/terminos" style="color: white;">Términos y Condiciones</a><br>
-    <a target="_blank" href="https://www.gob.mx/terminos#medidas-seguridad-informacion" style="color: white;">Política de seguridad</a><br>
-    <a target="_blank" href="http://www.ordenjuridico.gob.mx/" style="color: white;">Marco Jurídico</a><br>
-    <a target="_blank" href="https://www.gob.mx/sitemap" style="color: white;">Mapa de sitio</a><br>
-  </div>
-  <div class="col-sm-4">
-    <br><br>
-    <h5>Contacto</h5><br>
+            <a target="_blank" href="https://www.gob.mx/en/index" style="color: white;"> English</a><br>
+            <a target="_blank" href="https://www.gob.mx/temas" style="color: white;">Temas</a><br>
+            <a target="_blank" href="https://www.gob.mx/accesibilidad" style="color: white;">Declaración de Accesibilidad</a><br>
+            <a target="_blank" href="https://www.gob.mx/privacidadintegral" style="color: white;">Aviso de privacidad integral</a><br>
+            <a target="_blank" href="https://www.gob.mx/privacidadsimplificado" style="color: white;">Aviso de privacidad simplificado</a><br>
+            <a target="_blank" href="https://www.gob.mx/terminos" style="color: white;">Términos y Condiciones</a><br>
+            <a target="_blank" href="https://www.gob.mx/terminos#medidas-seguridad-informacion" style="color: white;">Política de seguridad</a><br>
+            <a target="_blank" href="http://www.ordenjuridico.gob.mx/" style="color: white;">Marco Jurídico</a><br>
+            <a target="_blank" href="https://www.gob.mx/sitemap" style="color: white;">Mapa de sitio</a><br>
+          </div>
+          <div class="col-sm-4">
+            <br><br>
+            <h5>Contacto</h5><br>
 
-     Mesa de ayuda: dudas e información<br>
-gobmx@funcionpublica.gob.mx<br>
+            Mesa de ayuda: dudas e información<br>
+            gobmx@funcionpublica.gob.mx<br>
 
-<a target="_blank" href="https://www.gob.mx/tramites/ficha/presentacion-de-quejas-y-denuncias-en-la-sfp/SFP54" style="color: white;">Denuncia contra servidores públicos</a><br>
-<br>
+            <a target="_blank" href="https://www.gob.mx/tramites/ficha/presentacion-de-quejas-y-denuncias-en-la-sfp/SFP54" style="color: white;">Denuncia contra servidores públicos</a><br>
+            <br>
 
-  </div>
-</div> 
- 
-
-
+          </div>
+        </div> 
+        
 
 
-</div>
-</body>
-</html>
+
+
+      </div>
+    </body>
+    </html>

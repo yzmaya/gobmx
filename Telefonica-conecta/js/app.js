@@ -78,16 +78,16 @@ var campo1 = $("#cursito").val();
   var redireccion;
       switch (campo1) { 
         case 'Analítica Web': 
-          redireccion = 'https://miriadax.net/web/analitica-web/inicio';
+          redireccion = 'https://miriadax.net/web/analitica-web-2-edicion-';
           break;
         case 'Gestión de Proyectos con metodologías ágiles y enfoques Lean': 
-          redireccion = 'https://miriadax.net/web/gestion-de-proyectoscon-metodologias-agiles-y-enfoques-lean-3-edicion-/inicio';
+          redireccion = 'https://miriadax.net/web/gestion-de-proyectos-con-metodologias-agiles-y-enfoques-lean-4-edicion-';
           break;
-        case 'Growt Hacking': 
-          redireccion = 'https://miriadax.net/web/growth-hacking-2-edicion-/inicio';
+        case 'Estrategia de posicionamiento digital (Growth Hacking)': 
+          redireccion = 'https://miriadax.net/web/growth-hacking-3-edicion-';
           break;    
         case 'Habilidades para el Empleo': 
-          redireccion = '';
+          redireccion = 'https://miriadax.net/web/habilidades-para-el-empleo-marca-la-diferencia-en-tu-carrera-profesional-4-edicion-';
           break;
         case 'Emprendimiento Social':
           redireccion = 'https://miriadax.net/web/emprendimiento-socialpon-tu-proyecto-en-marcha-6-edicion-/inicio';

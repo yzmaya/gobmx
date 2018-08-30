@@ -9,9 +9,20 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="/work/models/sems/gobmx/css/estilo.css">
   <script src="/work/models/sems/gobmx/js/app.js"></script>
-<script>
-  
-</script>
+
+ <script>
+    
+    function getValue(sString){
+      localStorage.setItem("Nombre", sString); 
+      var nombre = localStorage.getItem("Nombre");
+      document.getElementById("nombre").innerHTML = nombre;
+      $("#cursito").val(nombre);
+
+    };
+
+
+
+  </script>
 
 <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
 
@@ -44,51 +55,54 @@
 </nav>
  
 <div class="container">
-  <h2>Modal Example</h2>
-  <!-- Trigger the modal with a button -->
+	<br><br><br>
+   <h2>Cursos en habilidades tecnológicas y profesionales para el trabajo</h2>
+
+
+    <p style="text-align: justify;">Si deseas aprender más, reforzar tus conocimientos o sencillamente quieres actualizarte, estos cursos son para ti. En el área de habilidades tecnológicas, habilidades para el empleo y emprendimiento, se dispone de la siguiente oferta de cursos que nos brinda la colaboración de la Subsecretaria de Educación Media Superior con Fundación Telefónica México A.C., enfocados en el uso de herramientas digitales, competencias transversales, así como habilidades para el trabajo y emprendimiento, con una duración entre cuatro y ocho semanas. Los cursos son gratuitos.</p>
 
   <table class="table table-hover" class="table-responsive">
-    <thead>
+      <thead>
         <tr>
-            <th>Cursos</th>
-            <th>Descripci&oacute;n</th>
-            <th>Fecha de Inicio</th>
-            <th>Fecha de Termino</th>
+          <th>Cursos</th>
+          <th>Descripci&oacute;n</th>
+          <th>Fecha de Inicio</th>
+          <th>Fecha de Termino</th>
         </tr>
-    </thead>
-    <tbody data-toggle="modal" data-target="#myModal" style="cursor: pointer;">
+      </thead>
+      <tbody data-toggle="modal" data-target="#myModal" style="cursor: pointer;">
         <tr onclick="getValue('Analítica Web');">    
-            <td>Analítica Web</td>
-            <td>Conocer&aacute;s las herramientas que te ayudar&aacute;n a rescatar todos los datos necesarios para interpretarlos y extraer las conclusiones para tus productos digitales</td>
-            <td>2da Semana de Octubre</td>
-            <td>2da Semana de Noviembre</td>
+          <td>Analítica Web</td>
+          <td>Conocer&aacute;s las herramientas que te ayudar&aacute;n a rescatar todos los datos necesarios para interpretarlos y extraer las conclusiones para tus productos digitales</td>
+          <td>29 de Octubre de 2018</td>
+          <td>10 de Diciembre de 2018</td>
         </tr>
         <tr onclick="getValue('Gestión de Proyectos con metodologías ágiles y enfoques Lean');">
-            <td>Gesti&oacute;n de Proyectos con metodolog&iacute;as &aacute;giles y enfoques Lean</td>
-            <td>Conocer&aacute;s que son las metodolog&iacute;as &aacute;giles, el contexto en el que surgen y su aplicaci&oacute;n a los proyectos actuales</td>
-            <td>4ta Semana de Octubre</td>
-            <td>2da Semana de Diciembre</td>
+          <td>Gesti&oacute;n de Proyectos con metodolog&iacute;as &aacute;giles y enfoques Lean</td>
+          <td>Conocer&aacute;s que son las metodolog&iacute;as &aacute;giles, el contexto en el que surgen y su aplicaci&oacute;n a los proyectos actuales</td>
+          <td>17 de Septiembre de 2018</td>
+          <td>12 de Noviembre de 2018</td>
         </tr>
-        <tr onclick="getValue('Growt Hacking');">
-            <td>Growt Hacking</td>
-            <td>Conocer&aacute;s que son las metodolog&iacute;as &aacute;giles, el contexto en el que surgen y su aplicaci&oacute;n a los proyectos actuales</td>
-            <td>3ra Semana de Septiembre</td>
-            <td>3ra Semana de Octubre</td>
+        <tr onclick="getValue('Estrategia de posicionamiento digital (Growth Hacking)');">
+          <td>Estrategia de posicionamiento digital (Growth Hacking)</td>
+          <td>¿Cómo hacer que un producto digital sea un éxito? Descubre las claves para ser el mejor Growth Hacker de la historia.</td>
+          <td>29 de Octubre de 2018</td>
+          <td>10 de Diciembre de 2018</td>
         </tr>
         <tr onclick="getValue('Habilidades para el Empleo');">
-            <td>Habilidades para el Empleo</td>
-            <td>Conocer&aacute;s las herramientas para mejorar tu perfil como candidato en la busqueda de empleo y las destrezas necesarias para diferenciarte del resto de candidatos.</td>
-            <td>4ta Semana de Agosto</td>
-            <td>4ta Semana de Septiembre</td>
+          <td>Habilidades para el Empleo</td>
+          <td>Conocer&aacute;s las herramientas para mejorar tu perfil como candidato en la búsqueda de empleo y las destrezas necesarias para diferenciarte del resto de candidatos.</td>
+          <td>17 de Septiembre de 2018</td>
+          <td>20 de Octubre de 2018</td>
         </tr>
         <tr onclick="getValue('Emprendimiento Social');">
-            <td>Emprendimiento Social</td>
-            <td>Curso dirigido a personas comprometidas que quieren conocer c&oacute;mo hacer realidad su pasi&oacute;n</td>
-            <td>3ra Semana de Noviembre</td>
-            <td>3ra Semana de Diciembre</td>
+          <td>Emprendimiento Social</td>
+          <td>Curso dirigido a personas comprometidas que quieren conocer c&oacute;mo hacer realidad su pasi&oacute;n</td>
+          <td>Próximamente</td>
+          <td>Próximamente</td>
         </tr>
-    </tbody>
-</table>
+      </tbody>
+    </table>
  <div >
   
  </div>
@@ -97,50 +111,65 @@
     <div class="modal-dialog">
     
       <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">PRE REGISTRO</h4>
-        </div>
-        <div class="modal-body">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">PRE REGISTRO</h4>
+          </div>
+          <div class="modal-body">
            <span id="nombre" style="display: none;"> </span> 
-<form accept-charset="UTF-8" role="form">
-    <fieldset>
-          <div class="form-group"><input class="form-control" id="cursito" type="text" disabled/></div>
-          <div class="form-group"><input class="form-control" placeholder="Nombre Completo (Inicia con Nombre)" type="text" /></div>
-          <div class="form-group"><input class="form-control" placeholder="Correo electr&oacute;nico" type="email" required="" /></div>
-          <div class="form-group"><input class="form-control" placeholder="CURP" type="text" /></div>
-          <div class="form-group">
+           <form accept-charset="UTF-8" role="form" >
+            <fieldset>
 
-           <select class="form-control" id="lista" value="value1">value1</select>
+              <div class="form-group"><label for="curso">Curso:</label>
+                <input style="text-transform: uppercase;" class="form-control" id="cursito" type="text" disabled/></div>
+                <div class="form-group"><label for="curso">Nombre Completo:</label>
+                  <input style="text-transform: uppercase;" id="CAMPO2" class="form-control" placeholder="Nombre Completo (Inicia con Nombre)" type="text" required="" /></div>
+                  <div class="form-group"><label for="curso">Correo Electrónico:</label>
+                    <input style="text-transform: uppercase;" id="CAMPO3" class="form-control" placeholder="Correo electr&oacute;nico" type="email" required="" id="correo" /></div>
+                    <div class="form-group"> <label for="curso">CURP:</label>
+                      <input style="text-transform: uppercase;" id="CAMPO4" class="form-control" placeholder="Es necesario proporcionar los 18 caracteres que componen la CURP" type="text" required="" maxlength="18" /></div>
+                      <div class="form-group"><label for="curso">Entidad:</label>
+
+                       <select style="text-transform: uppercase;" class="form-control" id="lista" required=""></select>
+                     </div>
+                     <div class="form-group"><label for="curso">Subsistema:</label>
+                       <select style="text-transform: uppercase;" class="form-control" id="lista2" required=""></select>
+                     </div>  
+                     <div class="form-group"><label for="curso">CCT:</label>
+                      <select style="text-transform: uppercase;" class="form-control" id="lista3" required=""></select>
+                    </div>
+                    <div class="form-group"><label for="curso">¿Qué semestre cursas?:</label>
+                      <select class="form-control" id="CAMPO5" required="">
+                        <option>*SELECCIONA UNA OPCIÓN</option>
+                        <option>PRIMER SEMESTRE</option>
+                        <option>SEGUNDO SEMESTRE</option>
+                        <option>TERCER SEMESTRE</option>
+                        <option>CUARTO SEMESTRE</option>
+                        <option>QUINTO SEMESTRE</option>
+                        <option>SEXTO SEMESTRE</option>
+                      </select>
+                    </div>
+                    <div class="form-group"><label for="curso">Carrera Técnica o Formación para el Trabajo:</label>
+                      <input style="text-transform: uppercase;" id="CAMPO6" class="form-control" placeholder="Carrera T&eacute;cnica &oacute; Formaci&oacute;n para el Trabajo" type="text" required="" /></div>
+
+                      <div class="form-group">
+                       <form class="form-control">
+                        <label class="radio-inline">
+                          <input type="radio" required="">Acepto el <a href="">Aviso de Privacidad</a>
+                        </label>
+                      </form>
+                    </div>
+                    <input class="btn btn-lg btn-success btn-block" value="Registrarse" type="submit" id="registrado" />
+                  </fieldset>
+                </form>
+              </div>
+              
+            </div>
+            
           </div>
-          <div class="form-group">
-           <select class="form-control" id="lista2"></select>
-          </div>
-          <div class="form-group">
-            <select class="form-control" id="lista3"></select>
-          </div>
-          <div class="form-group">
-            <select class="form-control" id="sel1">
-              <option>Primer Semestre</option>
-              <option>Segundo Semestre</option>
-              <option>Tercer Semestre</option>
-              <option>Cuarto Semestre</option>
-              <option>Quinto Semestre</option>
-              <option>Sexto Semestre</option>
-            </select>
-          </div>
-          <div class="form-group"><input class="form-control" placeholder="Carrera T&eacute;cnica &oacute; Formaci&oacute;n para el Trabajo" type="text" /></div>
-          <input class="btn btn-lg btn-success btn-block" value="Registrarse" type="submit" />
-     </fieldset>
-</form>
         </div>
-        
       </div>
-      
-    </div>
-  </div>
-</div>
   <!--************************************************ AQUI EMPIEZA EL FOOTER *********************************************** -->
 
 <div class="footer">
