@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Registros</title>
     <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ <meta charset="UTF-8">
 
 </head>
 <body>
 
 <div class="container">
-  <p>Usarios registrados:</p>                                                                                      
-  <div class="table-responsive">          
+
+  <p>Cursos Telefónica:</p>  
+  <input type="text" name="" id="filtrar" class="form-control" placeholder="busca">                                                                                    
+  <div class="table-responsive"> 
+
+
+
+    
+    
+ 
+
+
   <table class="table">
     <thead>
       <tr>
         <th>Nombre</th>
         <th>Curso</th>
         <th>Correo Electrónico</th>
+        <th>Adjuntar Constancia</th>
         
       </tr>
     </thead>
-    <tbody id="lista">
+    <tbody id="lista" class="buscar">
     </tbody>
   </table>
   </div>
@@ -34,6 +46,51 @@
 	  crossorigin="anonymous"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+   <script type="text/javascript">
+     $(document).ready(function () {
+
+            (function ($) {
+
+                $('#filtrar').keyup(function () {
+
+                    var rex = new RegExp($(this).val(), 'i');
+                  
+                    $('.buscar tr').hide();
+                    $('.buscar tr').filter(function () {
+                        return rex.test($(this).text());
+                          
+                    }).show();
+   
+                });
+
+            }(jQuery));
+             
+
+        });
+  </script>
+ <script type="text/javascript">
+     var config = {
+    apiKey: "AIzaSyDujLZpXosVc-ikxxLf0l6ykLjbrqO2lCQ",
+    authDomain: "miprimerapp-66f05.firebaseapp.com",
+    databaseURL: "https://miprimerapp-66f05.firebaseio.com",
+    projectId: "miprimerapp-66f05",
+    storageBucket: "miprimerapp-66f05.appspot.com",
+    messagingSenderId: "804384469147"
+  };
+  firebase.initializeApp(config);
+
+var chicas = firebase.database().ref('registrados/');
+
+chicas.on('child_added', function(data) {
+  var nombre = data.val().name;
+  var curso = data.val().course;
+  var correo = data.val().mail;
+ 
+
+  $('#lista').prepend('<tr><td>' + nombre + '</td><td> ' + curso + '</td><td> ' + correo + '</td><td><input type=file>'  + '</td/</tr>' );
+});
+ </script>
 
 </body>
 </html>
