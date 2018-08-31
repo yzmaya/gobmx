@@ -9,8 +9,19 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/estilo.css">
   <script src="js/app.js"></script>
+  <style type="text/css">
+   
+
+          /* Important part */
+          .modal-dialog{
+              overflow-y: initial !important
+          }
+          .modal-body{
+              height: 550px;
+              overflow-y: auto;
+          }
+  </style>
   <script>
-    
     function getValue(sString){
       localStorage.setItem("Nombre", sString); 
       var nombre = localStorage.getItem("Nombre");
@@ -18,9 +29,6 @@
       $("#cursito").val(nombre);
 
     };
-
-
-
   </script>
   
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
@@ -163,14 +171,13 @@
           </div>
           <div class="modal-body">
            <span id="nombre" style="display: none;"> </span> 
-           <form class="form-inline"  accept-charset="UTF-8" role="form" >
+           <form  accept-charset="UTF-8" role="form" >
             <fieldset>
               <div class="form-group"><label for="curso">Curso:</label>
                 <input style="text-transform: uppercase;" class="form-control" id="cursito" type="text" disabled/></div>
                 <div class="form-group"><label for="curso">Nombre Completo:</label>
                   <input style="text-transform: uppercase;" id="CAMPO2" class="form-control" placeholder="Nombre Completo (Inicia con Nombre)" type="text" required="" /></div>
-              <!--   
-
+              
                   <div class="form-group"><label for="curso">Correo Electrónico:</label>
                     <input style="text-transform: uppercase;" id="CAMPO3" class="form-control" placeholder="Correo electr&oacute;nico" type="email" required="" id="correo" /></div>
                     <div class="form-group"> <label for="curso">CURP:</label>
@@ -183,7 +190,7 @@
                        <select style="text-transform: uppercase;" class="form-control" id="lista2" required=""></select>
                      </div>  
 
-                   -->
+                  
                      <div class="form-group"><label for="curso">CCT:</label>
                       <select style="text-transform: uppercase;" class="form-control" id="lista3" required=""></select>
                     </div>

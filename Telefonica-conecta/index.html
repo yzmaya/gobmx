@@ -9,9 +9,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="/work/models/sems/gobmx/css/estilo.css">
   <script src="/work/models/sems/gobmx/js/app.js"></script>
-
+<style type="text/css">
+          .modal-dialog{
+              overflow-y: initial !important
+          }
+          .modal-body{
+              height: 550px;
+              overflow-y: auto;
+          }
+  </style>
  <script>
-    
     function getValue(sString){
       localStorage.setItem("Nombre", sString); 
       var nombre = localStorage.getItem("Nombre");
@@ -19,10 +26,12 @@
       $("#cursito").val(nombre);
 
     };
-
-
-
   </script>
+  <script>
+    function enableSending() {
+        document.form.submit.disabled = !document.form.checkbox.checked;
+    }
+</script>
 
 <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
 
@@ -144,11 +153,11 @@
 
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
+      <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        
+        <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -156,17 +165,17 @@
           </div>
           <div class="modal-body">
            <span id="nombre" style="display: none;"> </span> 
-           <form accept-charset="UTF-8" role="form" >
+           <form  accept-charset="UTF-8" role="form" name="form">
             <fieldset>
-
               <div class="form-group"><label for="curso">Curso:</label>
                 <input style="text-transform: uppercase;" class="form-control" id="cursito" type="text" disabled/></div>
                 <div class="form-group"><label for="curso">Nombre Completo:</label>
                   <input style="text-transform: uppercase;" id="CAMPO2" class="form-control" placeholder="Nombre Completo (Inicia con Nombre)" type="text" required="" /></div>
+              
                   <div class="form-group"><label for="curso">Correo Electrónico:</label>
                     <input style="text-transform: uppercase;" id="CAMPO3" class="form-control" placeholder="Correo electr&oacute;nico" type="email" required="" id="correo" /></div>
                     <div class="form-group"> <label for="curso">CURP:</label>
-                      <input style="text-transform: uppercase;" id="CAMPO4" class="form-control" placeholder="Es necesario proporcionar los 18 caracteres que componen la CURP" type="text" required="" maxlength="18" /></div>
+                      <input minlength="18" style="text-transform: uppercase;" id="CAMPO4" class="form-control" placeholder="Es necesario proporcionar los 18 caracteres que componen la CURP" type="text" required="" maxlength="18" /></div>
                       <div class="form-group"><label for="curso">Entidad:</label>
 
                        <select style="text-transform: uppercase;" class="form-control" id="lista" required=""></select>
@@ -174,6 +183,8 @@
                      <div class="form-group"><label for="curso">Subsistema:</label>
                        <select style="text-transform: uppercase;" class="form-control" id="lista2" required=""></select>
                      </div>  
+
+                  
                      <div class="form-group"><label for="curso">CCT:</label>
                       <select style="text-transform: uppercase;" class="form-control" id="lista3" required=""></select>
                     </div>
@@ -193,13 +204,15 @@
 
                       <div class="form-group">
                        <form class="form-control">
-                        <label class="radio-inline">
-                          <input type="radio" required="">Acepto el <a target="_blank" href="http://sems.gob.mx/conecta/avisodeprivacidad">Aviso de Privacidad</a>
+                        <label class="checkbox-inline">
+                          <input type="checkbox" name="checkbox" required="" id="checkbox" onclick="enableSending();">Acepto el <a target="_blank" href="http://sems.gob.mx/conecta/avisodeprivacidad">Aviso de Privacidad</a>
                         </label>
                       </form>
                     </div>
-                    <input class="btn btn-lg btn-success btn-block" value="Registrarse" type="submit" id="registrado" />
-                  </fieldset>
+                    <input class="btn btn-lg btn-success btn-block" name="submit" value="Registrarse" type="submit" disabled="disabled"  id="registrado" />
+                     </fieldset>
+                    
+                 
                 </form>
               </div>
               
@@ -261,7 +274,71 @@ gobmx@funcionpublica.gob.mx<br>
   </div>
 </div> 
  
+<script type="text/javascript">
+  
+ $("#registrado").click(function(){
 
+var campo1 = $("#cursito").val();
+  var redireccion;
+      switch (campo1) { 
+        case 'Analítica Web': 
+          redireccion = 'https://miriadax.net/web/analitica-web-2-edicion-';
+          break;
+        case 'Gestión de Proyectos con metodologías ágiles y enfoques Lean': 
+          redireccion = 'https://miriadax.net/web/gestion-de-proyectos-con-metodologias-agiles-y-enfoques-lean-4-edicion-';
+          break;
+        case 'Estrategia de posicionamiento digital (Growth Hacking)': 
+          redireccion = 'https://miriadax.net/web/growth-hacking-3-edicion-';
+          break;    
+        case 'Habilidades para el Empleo': 
+          redireccion = 'https://miriadax.net/web/habilidades-para-el-empleo-marca-la-diferencia-en-tu-carrera-profesional-4-edicion-';
+          break;
+        case 'Emprendimiento Social':
+          redireccion = 'https://miriadax.net/web/emprendimiento-socialpon-tu-proyecto-en-marcha-6-edicion-/inicio';
+          break;
+        default:
+        console.log('?');
+      };
+
+    
+    var campo2 = $("#CAMPO2").val();
+    var campo3 = $("#CAMPO3").val();
+    var campo4 = $("#CAMPO4").val();
+    var campo5 = $("#lista").val();
+    var campo6 = $("#lista2").val();
+    var campo7 = $("#lista3").val();
+    var campo8 = $("#CAMPO5").val();
+    var campo9 = $("#CAMPO6").val();
+  
+    
+
+
+  if(campo2, campo3, campo4, campo5, campo6, campo7, campo8, campo9  == ''){
+
+  }else{
+    var user_register = firebase.database().ref('registrados/');
+    //se agregan los datos
+   user_register.push({
+    course: campo1,
+    name: campo2,
+    mail: campo3,
+    curp: campo4,
+    entity: campo5,
+    subsystem: campo6,
+    c_c_t: campo7,
+    semestre: campo8,
+    carreer: campo9
+      
+  });
+
+    console.log(redireccion);
+    alert('Recuerda que al terminar el curso debes adjuntar tu constancia en: www.sems.gob.mx/conecta/constancia');
+    window.open(redireccion, '_self');
+    
+  }
+  
+});
+</script>
 
 
 

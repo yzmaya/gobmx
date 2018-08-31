@@ -128,7 +128,7 @@ var campo1 = $("#cursito").val();
   });
 
     console.log(redireccion);
-    alert('Recuerda que al terminar el curso debes adjuntar tu constancia en: www.sems.gob.mx/constancia');
+    
     window.open(redireccion, '_blank');
     
   }
