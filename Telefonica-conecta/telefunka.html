@@ -74,7 +74,7 @@
           <th>Fecha de Termino</th>
         </tr>
       </thead>
-      <tbody data-toggle="modal" data-target="#myModal" style="cursor: pointer;">
+      <tbody data-toggle="modal" data-target="#premodal" style="cursor: pointer;">
         <tr onclick="getValue('Analítica Web');">    
           <td>Analítica Web</td>
           <td>Conocer&aacute;s las herramientas que te ayudar&aacute;n a rescatar todos los datos necesarios para interpretarlos y extraer las conclusiones para tus productos digitales</td>
@@ -107,9 +107,50 @@
         </tr>
       </tbody>
     </table>
-    <div >
-      
-    </div>
+
+
+  <!-- Modal -->
+    <div class="modal fade" id="premodal" role="dialog">
+      <div class="modal-dialog">
+        
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Aviso de Privacidad Simplificado</h4>
+          </div>
+          <div class="modal-body" style="text-align: justify;">
+            La Subsecretaría de Educación Media Superior (SEMS), a través de la Coordinación Sectorial de Vinculación, es responsable del tratamiento al que serán sometidos sus datos personales y protección de los mismos, con fundamento en lo dispuesto en los artículos 27 y 28 de la Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados, publicada en el Diario Oficial de la Federación el 26 de enero de 2017.
+            <br> <br>
+            <strong>Finalidades</strong>
+            <br> <br>
+            Los datos personales que se recaben serán utilizados con la finalidad de realizar el pre-registro de usuarios a los cursos en línea ofertados por Fundación Telefónica México A.C., elaborar informes, dar seguimiento a la conclusión de los cursos y estadísticas.
+            <br> <br>
+            <strong>Transferencia de datos personales</strong>
+            <br> <br>
+            Se informa que no se realizarán transferencias de datos personales, salvo aquéllas que sean necesarias para atender requerimientos de información de una autoridad competente, que estén debidamente fundados y motivados.
+            <br> <br>
+            <strong>Sitio donde se encuentra publicado el Aviso de Privacidad Integral</strong>
+            <br> <br>
+            El Aviso de privacidad Integral de esta Coordinación Sectorial de Vinculación, se encuentra publicado en el siguiente hipervínculo: <a target="_blank" href="http://sems.gob.mx/conecta/avisodeprivacidad">http://sems.gob.mx/conecta/avisodeprivacidad</a>
+            <br> <br>
+            Fecha de elaboración del Aviso de Privacidad Simplificado: 30 de agosto de 2018.
+
+          
+         </div>
+         <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-target="#myModal" data-dismiss="modal" data-toggle="modal">Aceptar</button>
+        </div>
+              
+            </div>
+            
+          </div>
+        </div>
+
+
+
+
+
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog">
@@ -122,13 +163,14 @@
           </div>
           <div class="modal-body">
            <span id="nombre" style="display: none;"> </span> 
-           <form accept-charset="UTF-8" role="form" >
+           <form class="form-inline"  accept-charset="UTF-8" role="form" >
             <fieldset>
-
               <div class="form-group"><label for="curso">Curso:</label>
                 <input style="text-transform: uppercase;" class="form-control" id="cursito" type="text" disabled/></div>
                 <div class="form-group"><label for="curso">Nombre Completo:</label>
                   <input style="text-transform: uppercase;" id="CAMPO2" class="form-control" placeholder="Nombre Completo (Inicia con Nombre)" type="text" required="" /></div>
+              <!--   
+
                   <div class="form-group"><label for="curso">Correo Electrónico:</label>
                     <input style="text-transform: uppercase;" id="CAMPO3" class="form-control" placeholder="Correo electr&oacute;nico" type="email" required="" id="correo" /></div>
                     <div class="form-group"> <label for="curso">CURP:</label>
@@ -140,6 +182,8 @@
                      <div class="form-group"><label for="curso">Subsistema:</label>
                        <select style="text-transform: uppercase;" class="form-control" id="lista2" required=""></select>
                      </div>  
+
+                   -->
                      <div class="form-group"><label for="curso">CCT:</label>
                       <select style="text-transform: uppercase;" class="form-control" id="lista3" required=""></select>
                     </div>
@@ -160,7 +204,7 @@
                       <div class="form-group">
                        <form class="form-control">
                         <label class="radio-inline">
-                          <input type="radio" required="">Acepto el <a href="">Aviso de Privacidad</a>
+                          <input type="radio" required="">Acepto el <a target="_blank" href="http://sems.gob.mx/conecta/avisodeprivacidad">Aviso de Privacidad</a>
                         </label>
                       </form>
                     </div>
@@ -178,7 +222,7 @@
       <div class="container" style="text-align: center;">
         <br>
         República de Argentina #28, Colonia Centro Histórico, Deleg. Cuauhtémoc, C.P. 06020, Ciudad de México<br>
-        <a href="">AVISO DE PRIVACIDAD</a>
+        <a target="_blank" href="http://sems.gob.mx/conecta/avisodeprivacidad">AVISO DE PRIVACIDAD</a>
         <br><br><br>
 
       </div>
