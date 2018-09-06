@@ -24,7 +24,6 @@
       var nombre = localStorage.getItem("Nombre");
       document.getElementById("nombre").innerHTML = nombre;
       $("#cursito").val(nombre);
-
     };
   </script>
   <script>
@@ -64,7 +63,7 @@
 </nav>
  
 <div class="container">
-	<br><br><br>
+  <br><br><br>
    <h2>Cursos en habilidades tecnológicas y profesionales para el trabajo</h2>
 
 
@@ -138,7 +137,7 @@
             <br> <br>
             El Aviso de privacidad Integral de esta Coordinación Sectorial de Vinculación, se encuentra publicado en el siguiente hipervínculo: <a target="_blank" href="http://sems.gob.mx/conecta/avisodeprivacidad">http://sems.gob.mx/conecta/avisodeprivacidad</a>
             <br> <br>
-            Fecha de elaboración del Aviso de Privacidad Simplificado: 30 de agosto de 2018.
+            Fecha de elaboración del Aviso de Privacidad Simplificado: 30 de agosto de 2018
 
           
          </div>
@@ -172,22 +171,35 @@
                 <div class="form-group"><label for="curso">Nombre Completo:</label>
                   <input style="text-transform: uppercase;" id="CAMPO2" class="form-control" placeholder="Nombre Completo (Inicia con Nombre)" type="text" required="" /></div>
               
-                  <div class="form-group"><label for="curso">Correo Electrónico:</label>
+                  <div class="form-group"><label for="curso">Correo Electrónico Personal:</label>
                     <input style="text-transform: uppercase;" id="CAMPO3" class="form-control" placeholder="Correo electr&oacute;nico" type="email" required="" id="correo" /></div>
                     <div class="form-group"> <label for="curso">CURP:</label>
                       <input minlength="18" style="text-transform: uppercase;" id="CAMPO4" class="form-control" placeholder="Es necesario proporcionar los 18 caracteres que componen la CURP" type="text" required="" maxlength="18" /></div>
                       <div class="form-group"><label for="curso">Entidad:</label>
 
-                       <select style="text-transform: uppercase;" class="form-control" id="lista" required=""></select>
+                       <select style="text-transform: uppercase;" class="form-control" id="lista" required="">
+                         <option value="audi" selected>SELECCIONA UNA OPCIÓN</option>
+                       </select>
                      </div>
                      <div class="form-group"><label for="curso">Subsistema:</label>
-                       <select style="text-transform: uppercase;" class="form-control" id="lista2" required=""></select>
+                       <select style="text-transform: uppercase;" class="form-control" id="lista2" required="">
+                         <option value="audi" selected>SELECCIONA UNA OPCIÓN</option>
+                       </select>
                      </div>  
 
                   
                      <div class="form-group"><label for="curso">CCT:</label>
-                      <select style="text-transform: uppercase;" class="form-control" id="lista3" required=""></select>
+                      <select style="text-transform: uppercase;" class="form-control" id="lista3" required="">
+                        <option value="audi" selected>SELECCIONA UNA OPCIÓN</option>
+                      </select>
                     </div>
+
+                    <div class="form-group"><label for="curso">OTRO:</label>
+                      <input style="text-transform: uppercase;" id="CAMPO8" class="form-control" placeholder="OTRO CCT" type="text" required="" />
+                        
+                      </select>
+                    </div>
+
                     <div class="form-group"><label for="curso">¿Qué semestre cursas?:</label>
                       <select class="form-control" id="CAMPO5" required="">
                         <option>*SELECCIONA UNA OPCIÓN</option>
@@ -277,7 +289,6 @@ gobmx@funcionpublica.gob.mx<br>
 <script type="text/javascript">
   
  $("#registrado").click(function(){
-
 var campo1 = $("#cursito").val();
   var redireccion;
       switch (campo1) { 
@@ -299,7 +310,6 @@ var campo1 = $("#cursito").val();
         default:
         console.log('?');
       };
-
     
     var campo2 = $("#CAMPO2").val();
     var campo3 = $("#CAMPO3").val();
@@ -311,10 +321,7 @@ var campo1 = $("#cursito").val();
     var campo9 = $("#CAMPO6").val();
   
     
-
-
   if(campo2, campo3, campo4, campo5, campo6, campo7, campo8, campo9  == ''){
-
   }else{
     var user_register = firebase.database().ref('registrados/');
     //se agregan los datos
@@ -330,7 +337,6 @@ var campo1 = $("#cursito").val();
     carreer: campo9
       
   });
-
     console.log(redireccion);
     alert('RECUERDA que al terminar el curso debes adjuntar tu constancia en: www.sems.gob.mx/conecta/constancia');
     window.open(redireccion, '_blank');
