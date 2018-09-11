@@ -26,17 +26,11 @@
       $("#cursito").val(nombre);
     };
   </script>
-  <script>
+ <script>
     function enableSending() {
         document.form.submit.disabled = !document.form.checkbox.checked;
     }
-
-     function enableSending2() {
-        document.form.cct2.disabled = !document.form.checkbox.checked;
-        document.form.cct1.disabled = document.form.checkbox.checked;
-    }
 </script>
-
 <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
 
 
@@ -102,7 +96,7 @@
           <td>29 de <br> Octubre de 2018</td>
           <td>10 de Diciembre de 2018</td>
         </tr>
-        <tr onclick="getValue('Habilidades para el Empleo');" style="display: none;">
+        <tr onclick="getValue('Habilidades para el Empleo');">
           <td>Habilidades para el Empleo</td>
           <td>Conocer&aacute;s las herramientas para mejorar tu perfil como candidato en la búsqueda de empleo y las destrezas necesarias para diferenciarte del resto de candidatos.</td>
           <td>17 de Septiembre de 2018</td>
@@ -116,7 +110,69 @@
         </tr>
       </tbody>
     </table>
+
+    <table class="table table-hover" class="table-responsive">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody data-toggle="modal" data-target="#not_available" style="cursor: pointer;">
+        <tr>    
+          <td>Analítica Web</td>
+          <td>Conocer&aacute;s las herramientas que te ayudar&aacute;n a rescatar todos los datos necesarios para interpretarlos y extraer las conclusiones para tus productos digitales.</td>
+          <td>29 de <br> Octubre de 2018</td>
+          <td>10 de Diciembre de 2018</td>
+        </tr>
+        <tr>
+          <td>Estrategia de posicionamiento digital (Growth Hacking)</td>
+          <td>¿Cómo hacer que un producto digital sea un éxito? Descubre las claves para ser el mejor Growth Hacker de la historia.</td>
+          <td>29 de <br> Octubre de 2018</td>
+          <td>10 de Diciembre de 2018</td>
+        </tr>
+        <tr>
+          <td>Emprendimiento Social</td>
+          <td>Curso dirigido a personas comprometidas que quieren conocer c&oacute;mo hacer realidad su pasi&oacute;n.</td>
+          <td>Próximamente</td>
+          <td>Próximamente</td>
+        </tr>
+      </tbody>
+    </table>
  
+<!-- Modal -->
+    <div class="modal fade" id="not_available" role="dialog">
+      <div class="modal-dialog">
+        
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Curso no disponible</h4>
+          </div>
+          <div class="modal-body" style="text-align: justify;">
+            Mantente al tanto de las fechas de inicio.
+            <p>Gracias.</p>
+
+
+          
+         </div>
+         <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-target="#" data-dismiss="modal" data-toggle="modal">Aceptar</button>
+        </div>
+              
+            </div>
+            
+          </div>
+        </div>
+
+
+
+
+
+
   <!-- Modal -->
     <div class="modal fade" id="premodal" role="dialog">
       <div class="modal-dialog">
@@ -337,6 +393,7 @@ var campo1 = $("#cursito").val();
     var campo7 = $("#lista3").val();
     var campo8 = $("#CAMPO5").val();
     var campo9 = $("#CAMPO6").val();
+    var campo10 = $("#CAMPO8").val();
   
     
   if(campo2, campo3, campo4, campo5, campo6, campo7, campo8, campo9  == ''){
@@ -351,6 +408,7 @@ var campo1 = $("#cursito").val();
     entity: campo5,
     subsystem: campo6,
     c_c_t: campo7,
+    c_c_t_other: campo10,
     semestre: campo8,
     carreer: campo9
       
@@ -365,7 +423,13 @@ var campo1 = $("#cursito").val();
 </script>
 
 
+ <script type="text/javascript">
 
+     function enableSending2() {
+        document.form.cct2.disabled = !document.form.checkbox.checked;
+        document.form.cct1.disabled = document.form.checkbox.checked;
+    }
+</script>
 </div>
 </body>
 </html>
