@@ -3,69 +3,52 @@
   <head>
    <meta charset="UTF-8">
    <title>Almacenamiento en Firebase</title>
-   <style media="screen">
-      body {
-        display: flex;
-        min-height: 100vh;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-      }
-      #uploader {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 50%;
-        margin-bottom: 10px;
-      }
-   </style>   
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
+<style media="screen">
+   
+    
 
+  </style>
   <body>
-    <progress value="0" max="100" id="uploader">0%</progress>
-    <input type="file" value="upload" id="fileButton" />
 
+  
 
-    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyAkFY4FYBebWtMhLNU_eTk3YyBeybH4SHI",
-        authDomain: "realtime01-22595.firebaseapp.com",
-        databaseURL: "https://realtime01-22595.firebaseio.com",
-        storageBucket: "realtime01-22595.appspot.com",
-        messagingSenderId: "932316393961"
-      };
-      firebase.initializeApp(config);
-      // Obtener Elementos
-      var uploader = document.getElementById('uploader');
-      var fileButton = document.getElementById('fileButton');
-      // Vigilar selección archivo
-      fileButton.addEventListener('change', function(e) {
-        //Obtener archivo
-        var file = e.target.files[0];
-        // Crear un storage ref
-        var storageRef = firebase.storage().ref('mis_fotos/' + file.name);
-        // Subir archivo
-        var task = storageRef.put(file);
-        // Actualizar barra progreso
-        task.on('state_changed',
-          function progress(snapshot) {
-            var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            uploader.value = percentage;
-          },
-          function error(err) {
-          },
-          function complete() {
-          }
-          )
-      });
-    </script>
+   <input type="file" class="form-control" value="upload" id="filebutton">
+        <progress value="0" max="100" id="uploader">0%</progress>
+
 
   </body>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+    
+    <script>
+      // Initialize Firebase
+       var config = {
+    apiKey: "AIzaSyDujLZpXosVc-ikxxLf0l6ykLjbrqO2lCQ",
+    authDomain: "miprimerapp-66f05.firebaseapp.com",
+    databaseURL: "https://miprimerapp-66f05.firebaseio.com",
+    projectId: "miprimerapp-66f05",
+    storageBucket: "miprimerapp-66f05.appspot.com",
+    messagingSenderId: "804384469147"
+  };
+  firebase.initializeApp(config);
+      // Obtener Elementos
+   
+  const db = firebase.database();
+
+
+
+
+    </script>
+
  </html>
 
    

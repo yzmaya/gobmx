@@ -22,8 +22,15 @@
 
 }
 
+#uploader{
+      -webkit-appearance: none;
+      appearance: none;
+      width: 50%;
+      margin-bottom: 10px;
+    }
 
 </style>
+
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50" style="padding-top:50px;">
 
@@ -54,22 +61,51 @@
 <div class="container">
   <h3>Sube tu Constancia!</h3>
   <p>Si ya has concluido con tu curso, por favor apoyanos subiendolo, buscandote por tu nombre, gracias.</p>
+
+  <table border="1">
+ <thead>
+   <tr>
+     <th>comlumn 1</th>
+     <th>comlumn 2</th>      
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td onclick="getValue('alo');">val 1 row 1</td>
+     <td class="getValue" onclick="getValue('añor');">val 2 row 1</td>        
+   </tr>
+   <tr>
+     <td class="getValue">val 3 row 2</td>
+     <td class="getValue">val 4 row 2</td>        
+   </tr>    
+ </tbody>
+</table>
+
+<script>
+
+//$(".getValue").click(function (){
+//$(this).text()
+//alert($(this).text());
+// });
+</script>
   
   <br>
 <input type="text" name="" id="filtrar" class="form-control" placeholder="Buscar...">                                                                                    
   <div class="table-responsive"> 
 
-  <table class="table">
+  <table class="table table-hover" class="table-responsive" id="myTable">
     <thead>
       <tr>
+        <th>key</th>
         <th>Nombre</th>
         <th>Curso</th>
         <th>Correo Electrónico</th>
         <th>Adjuntar Constancia</th>
+        <th>Progreso</th>
         
       </tr>
     </thead>
-    <tbody id="lista" class="buscar">
+    <tbody id="lista" class="buscar"  style="cursor: pointer;">
     </tbody>
   </table>
   </div>
@@ -118,6 +154,8 @@ gobmx@funcionpublica.gob.mx<br>
   </div>
 </div> 
  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+
+
  <script
     src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
@@ -126,6 +164,8 @@ gobmx@funcionpublica.gob.mx<br>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
+
+  console.log();
 
    $(document).ready(function () {
 
@@ -161,17 +201,67 @@ gobmx@funcionpublica.gob.mx<br>
 
 var chicas = firebase.database().ref('registrados/');
 
+
 chicas.on('child_added', function(data) {
+  var llave = data.key;
   var nombre = data.val().name;
   var curso = data.val().course;
   var correo = data.val().mail;
+  var porcentaje = "0%";
  
-
-  $('#lista').prepend('<tr><td>' + nombre + '</td><td> ' + curso + '</td><td> ' + correo + '</td><td><input type=file>'  + '</td/</tr>' );
+  $('#lista').prepend("<tr><td onclick=getValue('" + llave + "')></td><td> " +  nombre + "</td><td>" + curso + "</td><td>" + correo + "</td><td><input type=file value=upload id=filebutton onclick=enableSending() "  + "</td><td><progress value=0 max=100 id=uploader>" + porcentaje + "</progress> </td></tr>");
 });
- </script>
-</script>
 
+
+ </script>
+
+<script>
+
+
+  function getValue(sString){
+    
+console.log(sString);
+};
+
+
+    function enableSending() {
+
+
+        var uploader = document.getElementById('uploader');
+var fileButton = document.getElementById('filebutton');
+
+fileButton.addEventListener('change',function(e) {
+  var file = e.target.files[0];
+
+  var storageRef = firebase.storage().ref('imagenes/' + file.name);
+
+  var task = storageRef.put(file);
+
+  task.on('state_changed',
+
+    function progress(snapshot){
+      var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      uploader.value = percentage;
+
+    },
+
+
+    function error(err){
+
+    },
+
+    function complete(){
+alert('Gracias!')
+    }
+
+
+
+    );
+
+});
+
+    }
+</script>
 
 </div>
 </body>
