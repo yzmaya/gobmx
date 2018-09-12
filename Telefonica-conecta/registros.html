@@ -61,33 +61,6 @@
 <div class="container">
   <h3>Sube tu Constancia!</h3>
   <p>Si ya has concluido con tu curso, por favor apoyanos subiendolo, buscandote por tu nombre, gracias.</p>
-
-  <table border="1">
- <thead>
-   <tr>
-     <th>comlumn 1</th>
-     <th>comlumn 2</th>      
-   </tr>
- </thead>
- <tbody>
-   <tr>
-     <td onclick="getValue('alo');">val 1 row 1</td>
-     <td class="getValue" onclick="getValue('añor');">val 2 row 1</td>        
-   </tr>
-   <tr>
-     <td class="getValue">val 3 row 2</td>
-     <td class="getValue">val 4 row 2</td>        
-   </tr>    
- </tbody>
-</table>
-
-<script>
-
-//$(".getValue").click(function (){
-//$(this).text()
-//alert($(this).text());
-// });
-</script>
   
   <br>
 <input type="text" name="" id="filtrar" class="form-control" placeholder="Buscar...">                                                                                    
@@ -96,13 +69,10 @@
   <table class="table table-hover" class="table-responsive" id="myTable">
     <thead>
       <tr>
-        <th>key</th>
         <th>Nombre</th>
         <th>Curso</th>
         <th>Correo Electrónico</th>
-        <th>Adjuntar Constancia</th>
-        <th>Progreso</th>
-        
+        <th>Adjuntar Constancia</th>        
       </tr>
     </thead>
     <tbody id="lista" class="buscar"  style="cursor: pointer;">
@@ -155,14 +125,6 @@ gobmx@funcionpublica.gob.mx<br>
 </div> 
  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
 
-
- <script
-    src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    crossorigin="anonymous"></script>
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
 <script type="text/javascript">
 
   console.log();
@@ -209,7 +171,7 @@ chicas.on('child_added', function(data) {
   var correo = data.val().mail;
   var porcentaje = "0%";
  
-  $('#lista').prepend("<tr><td onclick=getValue('" + llave + "')></td><td> " +  nombre + "</td><td>" + curso + "</td><td>" + correo + "</td><td><input type=file value=upload id=filebutton onclick=enableSending() "  + "</td><td><progress value=0 max=100 id=uploader>" + porcentaje + "</progress> </td></tr>");
+  $('#lista').prepend("<tr><td>" +  nombre + "</td><td>" + curso + "</td><td>" + correo + "</td><td><input type='file' value='upload' id='filebutton' onclick=enableSending('" + llave + "')></td></td></tr>");
 });
 
 
@@ -218,16 +180,15 @@ chicas.on('child_added', function(data) {
 <script>
 
 
-  function getValue(sString){
-    
-console.log(sString);
-};
 
 
-    function enableSending() {
+    function enableSending(sString) {
+
+     
 
 
-        var uploader = document.getElementById('uploader');
+        console.log(sString);
+
 var fileButton = document.getElementById('filebutton');
 
 fileButton.addEventListener('change',function(e) {
@@ -237,27 +198,7 @@ fileButton.addEventListener('change',function(e) {
 
   var task = storageRef.put(file);
 
-  task.on('state_changed',
-
-    function progress(snapshot){
-      var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      uploader.value = percentage;
-
-    },
-
-
-    function error(err){
-
-    },
-
-    function complete(){
-alert('Gracias!')
-    }
-
-
-
-    );
-
+alert('gracias');
 });
 
     }
