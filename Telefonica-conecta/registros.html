@@ -171,7 +171,7 @@ chicas.on('child_added', function(data) {
   var correo = data.val().mail;
   var porcentaje = "0%";
  
-  $('#lista').prepend("<tr><td>" +  nombre + "</td><td>" + curso + "</td><td>" + correo + "</td><td><input type='file' value='upload' id='filebutton' onclick=enableSending('" + llave + "')></td></td></tr>");
+  $('#lista').prepend("<tr><td>" +  nombre + "</td><td>" + curso + "</td><td>" + correo + "</td><td><input type='file' value='upload' id='"+ llave + "' accept='application/pdf' onclick=enableSending('" + llave + "')></td></td></tr>");
 });
 
 
@@ -179,17 +179,11 @@ chicas.on('child_added', function(data) {
 
 <script>
 
+function enableSending(sstring){
 
+  console.log(sstring);
 
-
-    function enableSending(sString) {
-
-     
-
-
-        console.log(sString);
-
-var fileButton = document.getElementById('filebutton');
+  var fileButton = document.getElementById(sstring);
 
 fileButton.addEventListener('change',function(e) {
   var file = e.target.files[0];
@@ -201,7 +195,10 @@ fileButton.addEventListener('change',function(e) {
 alert('gracias');
 });
 
-    }
+}
+
+
+    
 </script>
 
 </div>
