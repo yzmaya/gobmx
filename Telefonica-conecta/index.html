@@ -264,14 +264,10 @@
 
                     <div class="form-group"><label for="curso">CCT No encontrado:</label>
                       <div class="form-group">
-                       <form class="form-control">
-                        <label class="checkbox-inline">
-                          <input type="checkbox" name="checkbox" required="" id="checkbox" onclick="enableSending2();">Mi cct no está en la lista:
-                        </label>
-                      </form>
+                          <input style="text-transform: uppercase;" id="CAMPO8" class="form-control" placeholder="En caso de no encontrar tu CCT, captúralo en este campo" type="text" name="cct2" required=""  />
                     </div>
 
-                      <input style="text-transform: uppercase;" id="CAMPO8" class="form-control" placeholder="En caso de no encontrar tu CCT, captúralo en este campo" type="text" name="cct2" required="" disabled="" />
+                      
                         
                       
                     </div>
@@ -395,6 +391,7 @@ var campo1 = $("#cursito").val();
     var campo8 = $("#CAMPO5").val();
     var campo9 = $("#CAMPO6").val();
     var campo10 = $("#CAMPO8").val();
+    var display = 'hola';
   
     
   if(campo2, campo3, campo4, campo5, campo6, campo7, campo8, campo9  == ''){
@@ -411,7 +408,8 @@ var campo1 = $("#cursito").val();
     c_c_t: campo7,
     c_c_t_other: campo10,
     semestre: campo8,
-    carreer: campo9
+    carreer: campo9,
+    display: display
       
   });
     console.log(redireccion);
@@ -424,13 +422,6 @@ var campo1 = $("#cursito").val();
 </script>
 
 
- <script type="text/javascript">
-
-     function enableSending2() {
-        document.form.cct2.disabled = !document.form.checkbox.checked;
-        document.form.cct1.disabled = document.form.checkbox.checked;
-    }
-</script>
 </div>
 </body>
 </html>
