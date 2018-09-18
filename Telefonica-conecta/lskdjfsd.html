@@ -1,0 +1,47 @@
+
+   user_register.update({
+    
+    display: 'none'
+      
+  });
+
+
+
+
+
+
+fileButton.addEventListener('change',function(e) {
+  var file = e.target.files[0];
+
+  var storageRef = firebase.storage().ref('imagenes/' + file.name);
+
+  var task = storageRef.put(file);
+
+    task.on('state_changed',
+    function progress(snapshot){
+      var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      uploader.value = percentage;
+    },
+    function error(err){
+    },
+    function complete(){
+        alert('Gracias!')
+
+         var user_register = firebase.database().ref('registrados/' + sstring);
+         var ok = firebase.database().ref('confirmados/');
+    //se agregan los datos
+    console.log('se modificó en ' + user_register);
+    console.log('se modificó en ' + user_register );
+
+    
+
+
+
+
+
+
+    }
+
+ );
+
+});

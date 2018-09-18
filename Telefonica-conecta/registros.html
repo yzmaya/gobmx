@@ -183,7 +183,7 @@ function enableSending(sstring){
 
   console.log(sstring);
 
-  var fileButton = document.getElementById(sstring);
+   var fileButton = document.getElementById(sstring);
 
 fileButton.addEventListener('change',function(e) {
   var file = e.target.files[0];
@@ -200,15 +200,32 @@ fileButton.addEventListener('change',function(e) {
     function error(err){
     },
     function complete(){
-        alert('Gracias!')
+        
 
-         var user_register = firebase.database().ref('registrados/' + sstring);
+      
+firebase.database().ref('/registrados' + '/' + sstring).on('value', function(snapshot) {
+
+  var confirmado = firebase.database().ref('confirmado/');
     //se agregan los datos
-   user_register.push({
-    
-    display: none
+   confirmado.push({
+    course: snapshot.val().course,
+    name: snapshot.val().name,
+    mail: snapshot.val().mail,
+    curp: snapshot.val().curp,
+    entity: snapshot.val().entity,
+    subsystem: snapshot.val().subsystem,
+    c_c_t: snapshot.val().c_c_t,
+    c_c_t_other: snapshot.val().c_c_t_other,
+    semestre: snapshot.val().semestre,
+    carreer: snapshot.val().carreer
+
+
       
   });
+
+alert('GRACIAS! ' + snapshot.val().name);
+   firebase.database().ref('/registrados' + '/' + sstring).remove(); 
+});
 
 
 
@@ -220,7 +237,8 @@ fileButton.addEventListener('change',function(e) {
 
 });
 
-}
+
+};
 
 
     
