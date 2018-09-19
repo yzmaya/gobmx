@@ -182,13 +182,14 @@ chicas.on('child_added', function(data) {
 function enableSending(sstring){
 
   console.log(sstring);
+  var fecha = new Date();
 
-   var fileButton = document.getElementById(sstring);
+  var fileButton = document.getElementById(sstring);
 
 fileButton.addEventListener('change',function(e) {
   var file = e.target.files[0];
 
-  var storageRef = firebase.storage().ref('imagenes/' + file.name);
+  var storageRef = firebase.storage().ref('imagenes/' + file.name + '/' + sstring );
 
   var task = storageRef.put(file);
 
@@ -198,6 +199,7 @@ fileButton.addEventListener('change',function(e) {
       uploader.value = percentage;
     },
     function error(err){
+      alert('no es un archivo pdf, intenta de nuevo');
     },
     function complete(){
         
@@ -219,18 +221,13 @@ firebase.database().ref('/registrados' + '/' + sstring).on('value', function(sna
     semestre: snapshot.val().semestre,
     carreer: snapshot.val().carreer
 
-
       
   });
 
 alert('GRACIAS! ' + snapshot.val().name);
    firebase.database().ref('/registrados' + '/' + sstring).remove(); 
+   window.open('http://sems.gob.mx/conecta/constancia', '_self');
 });
-
-
-
-
-
     }
 
  );
