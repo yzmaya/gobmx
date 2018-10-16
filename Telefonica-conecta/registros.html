@@ -61,6 +61,7 @@
 <div class="container">
   <h3>Sube tu Constancia!</h3>
   <p>Si ya has concluido con tu curso, por favor apoyanos subiendolo, buscandote por tu nombre, gracias.</p>
+  <br><button class="btn btn-success" id="mi-boton">Hola</button>
   
   <br>
 <input type="text" name="" id="filtrar" class="form-control" placeholder="Buscar...">                                                                                    
@@ -127,7 +128,6 @@ gobmx@funcionpublica.gob.mx<br>
 
 <script type="text/javascript">
 
-  console.log();
 
    $(document).ready(function () {
 
@@ -178,6 +178,15 @@ chicas.on('child_added', function(data) {
  </script>
 
 <script>
+
+  $(function () {
+  $("#mi-boton").click(function () {
+      var nFilas = $("#myTable tr").length;
+      var nColumnas = $("#myTable tr:last td").length;
+      var msg = "Filas: "+nFilas+" - Columnas: "+nColumnas;
+      alert(msg);
+    });
+});
 
 function enableSending(sstring){
 
