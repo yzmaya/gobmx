@@ -135,6 +135,14 @@ gobmx@funcionpublica.gob.mx<br>
 
                 $('#filtrar').keyup(function () {
 
+                   $("#mi-boton").click(function () {
+                    var nFilas = $("#filtrar tr").length;
+                    var nColumnas = $("#filtrar tr:last td").length;
+                    var msg = "Filas: "+nFilas+" - Columnas: "+nColumnas;
+                    alert(msg);
+                  });
+
+
                     var rex = new RegExp($(this).val(), 'i');
                   
                     $('.buscar tr').hide();
@@ -180,13 +188,7 @@ chicas.on('child_added', function(data) {
 <script>
 
   $(function () {
-  $("#mi-boton").click(function () {
-      var nFilas = $("#myTable tr").length;
-      var nColumnas = $("#myTable tr:last td").length;
-      var msg = "Filas: "+nFilas+" - Columnas: "+nColumnas;
-      alert(msg);
-    });
-});
+ });
 
 function enableSending(sstring){
 
