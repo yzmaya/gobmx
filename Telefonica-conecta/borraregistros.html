@@ -175,7 +175,7 @@ chicas.on('child_added', function(data) {
   var correo = data.val().mail;
   var ver = data.val().display;
  
-  $('#lista').prepend("<tr style=display:" + ver +  ";><td>" +  nombre + "</td><td>" + curso + "</td><td>" + correo + "</td><td><input type='file' value='upload' id='"+ llave + "' accept='application/pdf' onclick=enableSending('" + llave + "')></td></tr>");
+  $('#lista').prepend("<tr style=display:" + ver +  ";><td>" +  nombre + "</td><td>" + curso + "</td><td>" + correo + "</td><td><button class='btn btn-warning' id='"+ llave + "' onclick=enableSending('" + llave + "')>eliminar</td></tr>");
 });
 
 
@@ -189,60 +189,14 @@ chicas.on('child_added', function(data) {
 function enableSending(sstring){
 
   console.log(sstring);
-  var fecha = new Date();
+  
 
-  var fileButton = document.getElementById(sstring);
+      firebase.database().ref('/registrados' + '/' + sstring).remove();
 
-fileButton.addEventListener('change',function(e) {
-  var file = e.target.files[0];
-
-  var storageRef = firebase.storage().ref('imagenes/' + file.name + '/' + sstring );
-
-  var task = storageRef.put(file);
-
-    task.on('state_changed',
-    function progress(snapshot){
-      var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      uploader.value = percentage;
-    },
-    function error(err){
-      alert('no es un archivo pdf, intenta de nuevo');
-    },
-    function complete(){
-        
-
-      
-firebase.database().ref('/registrados' + '/' + sstring).on('value', function(snapshot) {
-
-  var confirmado = firebase.database().ref('confirmado/');
-    //se agregan los datos
-   confirmado.push({
-    course: snapshot.val().course,
-    name: snapshot.val().name,
-    mail: snapshot.val().mail,
-    curp: snapshot.val().curp,
-    entity: snapshot.val().entity,
-    subsystem: snapshot.val().subsystem,
-    c_c_t: snapshot.val().c_c_t,
-    c_c_t_other: snapshot.val().c_c_t_other,
-    semestre: snapshot.val().semestre,
-    carreer: snapshot.val().carreer
-
-      
-  });
-
-alert('GRACIAS! ' + snapshot.val().name);
-   firebase.database().ref('/registrados' + '/' + sstring).remove(); 
-   window.open('http://sems.gob.mx/conecta/constancia', '_self');
-});
-    }
-
- );
-
-});
-
+      alert('eliminado');
 
 };
+
 
 
     
