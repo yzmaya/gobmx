@@ -131,23 +131,23 @@ gobmx@funcionpublica.gob.mx<br>
 
    $(document).ready(function () {
 
+     $("#mi-boton").click(function () {
+                            console.log($('#lista > tr').length)
+                          });
+
             (function ($) {
 
                 $('#filtrar').keyup(function () {
-
-                   $("#mi-boton").click(function () {
-                    var nFilas = $("#filtrar tr").length;
-                    var nColumnas = $("#filtrar tr:last td").length;
-                    var msg = "Filas: "+nFilas+" - Columnas: "+nColumnas;
-                    alert(msg);
-                  });
 
 
                     var rex = new RegExp($(this).val(), 'i');
                   
                     $('.buscar tr').hide();
                     $('.buscar tr').filter(function () {
-                        return rex.test($(this).text());
+                      var abc = rex.test($(this).text());
+                        return abc;
+                        console.log(abc.innerHtml);
+
                           
                     }).show();
    
