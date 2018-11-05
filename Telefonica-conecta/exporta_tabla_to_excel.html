@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <title>Gob Mx</title>
-  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/plain; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/jquery.table2excel.js" ></script>
+  <script src="js/jquery.table2excel.min.js"></script>
   <style>
   
 
@@ -59,24 +61,37 @@
 </nav>
  
 <div class="container">
-  <h3>Sube tu Constancia!</h3>
-  <p>Si ya has concluido con tu curso, por favor apoyanos subiendolo, buscandote por tu nombre, gracias.</p>
-  
+  <br><br>
   
   <br>
+  <br>
+
+
+
+
+<input type="button" class="btn btn-success" onclick="tableToExcel('testTable', 'W3C Example Table')" value="Exportar a Excel">
+<br><br>
+
+
 <input type="text" name="" id="filtrar" class="form-control" placeholder="Buscar...">                                                                                    
   <div class="table-responsive"> 
 
-  <table class="table table-striped table-hover" class="table-responsive" id="myTable">
+  <table class="table  table-striped table-hover"  id="testTable">
     <thead>
       <tr>
-        <th>Nombre</th>
-        <th>Curso</th>
-        <th>Correo Electrónico</th>
-        <th>Adjuntar Constancia</th>        
+        <th>CURSO</th>
+        <th>NOMBRE COMPLETO</th>
+        <th>CORREO</th>
+        <th>CURP</th>
+        <th>ENTIDAD</th>   
+        <th>SUBSISTEMA</th>
+        <th>CCT</th> 
+        <th>CCT-OTRO</th>
+        <th>SEMESTRE</th>
+        <th>CARRERA O FORMACIÓN</th>      
       </tr>
     </thead>
-    <tbody id="lista" class="buscar"  style="cursor: pointer;">
+    <tbody id="lista" class="buscar" style="cursor: pointer;">
     </tbody>
   </table>
   </div>
@@ -126,7 +141,22 @@ gobmx@funcionpublica.gob.mx<br>
 </div> 
  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
 
+ <script type="text/javascript">
+var tableToExcel = (function() {
+  var uri = 'data:application/vnd.ms-excel;base64,'
+    , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>'
+    , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+    , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+  return function(table, name) {
+    if (!table.nodeType) table = document.getElementById(table)
+    var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+    window.location.href = uri + base64(format(template, ctx))
+  }
+})()
+</script>
+
 <script type="text/javascript">
+
 
 
    $(document).ready(function () {
@@ -173,35 +203,22 @@ chicas.on('child_added', function(data) {
   var nombre = data.val().name;
   var curso = data.val().course;
   var correo = data.val().mail;
-  var ver = data.val().display;
+  var carreraoformacion = data.val().carreer;
+  var curp = data.val().curp;
+  var entidad = data.val().entity;
+  var subsistema = data.val().subsystem;
+  var cct = data.val().c_c_t;
+  var otrocct = data.val().c_c_t_other;
+  var semstre = data.val().semestre;
+
  
-  $('#lista').prepend("<tr style=display:" + ver +  ";><td>" +  nombre + "</td><td>" + curso + "</td><td>" + correo + "</td><td><button class='btn btn-warning' id='"+ llave + "' onclick=enableSending('" + llave + "')>eliminar</td></tr>");
+  $('#lista').prepend("<tr><td>" +  curso + "</td><td>" + nombre + "</td><td>" + correo + "</td><td>" + curp + "</td><td>" + entidad + "</td><td>" + subsistema + "</td><td>" + cct + "</td><td>" + otrocct + "</td><td>" + semstre + "</td><td>" + carreraoformacion + "</td></tr>");
 });
 
 
  </script>
-
-<script>
-
-  $(function () {
- });
-
-function enableSending(sstring){
-
-  console.log(sstring);
-  
-
-      firebase.database().ref('/registrados' + '/' + sstring).remove();
-
-      alert('eliminado');
-
-};
-
-
-
-    
-</script>
-
 </div>
+
+ 
 </body>
 </html>
